@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebbProjekt1</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Egen CSS -->
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+
+<div class="card">
+    <h1 th:text="${message}">Welcome to WebbProjekt1!</h1>
+
+    <p id="title"> EVENT FINDER </p>
+
+    <p>This Spring Boot app uses Thymeleaf to render the home page.</p>
+
+    <p class="meta">
+        Server time:
+        <span th:text="${currentTime}">2026-05-11T12:00:00</span>
+    </p>
+
+    <hr />
+
+    <h2>Karta</h2>
+
+    <!-- Sökfält -->
+    <div class="search-container">
+        <input type="text" id="stad" placeholder="Ange stad" />
+        <button id="sokKnapp">Sök</button>
+    </div>
+
+    <!-- Kartacontainer -->
+    <div id="karta"></div>
+
+    <hr />
+
+    <!-- Lista med evenemang -->
+    <div id="eventLista">
+        <h3>Evenemang</h3>
+        <ul id="eventListItems"></ul>
+    </div>
+</div>
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Egen JavaScript -->
+<script th:src="@{/script.js}"></script>
+
+</body>
+</html>
